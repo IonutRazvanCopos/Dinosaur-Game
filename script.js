@@ -4,14 +4,13 @@ const ctx = canvas.getContext('2d');
 let dinoX = 50;
 let dinoY = 140;
 let isJumping = false;
-let jumpSpeed = -8;
+let jumpSpeed = 0;
 let jumping = -8;
 const gravity = 0.5;
 
-const dinoSize = 50;
+const dinoSize = 50, dinoPosition = 140;
 const objectHeight = 50, objectWidth = 30;
 const objectPosition = 40, objectSpeed = 5;
-const dinoPosition = 140;
 const landHeight = 10;
 
 const spawnTime = 1000;
