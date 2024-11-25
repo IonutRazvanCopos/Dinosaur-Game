@@ -1,19 +1,18 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
+const gravity = 0.5;
+const dinoSize = 50, dinoPosition = 140;
+const objectHeight = 50, objectWidth = 30;
+const objectPosition = 40, objectSpeed = 5;
+const landHeight = 10;
+const spawnTime = 1000;
+
 let dinoX = 50;
 let dinoY = 140;
 let isJumping = false;
 let jumpSpeed = 0;
 let jumping = -8;
-const gravity = 0.5;
-
-const dinoSize = 50, dinoPosition = 140;
-const objectHeight = 50, objectWidth = 30;
-const objectPosition = 40, objectSpeed = 5;
-const landHeight = 10;
-
-const spawnTime = 1000;
 
 let objects = [];
 
@@ -75,7 +74,7 @@ function checkCollision() {
     return false;
 }
 
-function update() {
+function onFrameUpdate() {
     if (isJumping) {
         dinoY += jumpSpeed;
         jumpSpeed += gravity;
@@ -94,7 +93,7 @@ function update() {
 
     draw();
     drawObjects();
-    requestAnimationFrame(update);
+    requestAnimationFrame(onFrameUpdate);
 }
 
 window.addEventListener('keydown', function(event) {
@@ -103,4 +102,4 @@ window.addEventListener('keydown', function(event) {
     }
 });
 
-update();
+onFrameUpdate();
